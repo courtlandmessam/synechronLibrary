@@ -46,7 +46,7 @@
                         <td>{{bookDetail.bookCategory}}</td>
                         <td>{{bookDetail.numberOfBooksIssued}}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>{{newBookDetail.name}}</td>
                         <td>{{newBookDetail.author}}</td>
                         <td>{{newBookDetail.isbnCode}}</td>
@@ -54,7 +54,7 @@
                         <td>{{newBookDetail.publishDate | date}}</td>
                         <td>{{newBookDetail.bookCategory}}</td>
                         <td>{{newBookDetail.numberOfBooksIssued}}</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
             <!--End of books table -->
@@ -86,33 +86,34 @@
         </section>
 
         <!-- Add New Book Form -->
-        <form class="form-horizontal add-form">
+        <form class="form-horizontal add-form" ng-controller="LibraryController as library" ng-submit"library.addBookDetails()">
+
           <div class="row add-form">
             <div class="col-xs-4">
                 <label for="bookDetail.name">New Book Title</label>
-                <input ng-model="newBookDetail.name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+                <input ng-model="library.bookDetail.name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
             <div class="col-xs-4">
                 <label for="bookDetail.author">New Book Author</label>
-                <input ng-model="newBookDetail.author" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+                <input ng-model="library.bookDetail.author" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
             <div class="col-xs-4">
                 <label  for="bookDetail.isbnCode">New Book ISBN Code</label>
-                <input ng-model="newBookDetail.isbnCode" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+                <input ng-model="library.bookDetail.isbnCode" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
           </div>
           <div class="row add-form">
             <div class="col-xs-3">
                 <label for="bookDetail.numberOfBooks">New Number of Books</label>
-                <input ng-model="newBookDetail.numberOfBooks" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+                <input ng-model="library.bookDetail.numberOfBooks" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
             <div class="col-xs-3">
                 <label for="bookDetail.publishDate">New Book Publish Date</label>
-                <input ng-model="newBookDetail.publishDate" type="date" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+                <input ng-model="library.bookDetail.publishDate" type="date" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
             <div class="col-xs-3">
                 <label for="bookDetail.bookCategory">New Book Category</label>
-                <select ng-model="newBookDetail.bookCategory" class="form-control">
+                <select ng-model="library.bookDetail.bookCategory" class="form-control">
                   <option>Fiction</option>
                   <option>Horror</option>
                   <option>Drama</option>
@@ -122,7 +123,7 @@
             </div>
             <div class="col-xs-3">
                 <label for="bookDetail.numberOfBooksIssued">New Number of Books Issued</label>
-                <select ng-model="newBookDetail.numberOfBooksIssued" class="form-control">
+                <select ng-model="library.bookDetail.numberOfBooksIssued" class="form-control">
                   <option>0</option>
                 </select>
             </div>

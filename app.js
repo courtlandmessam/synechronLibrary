@@ -2,11 +2,17 @@
   var app = angular.module('library', []);
 
   app.controller('LibraryController', function(){
-    this.row = 0;
     this.bookDetails = bookDetails;
+
+    this.row = 0;
     this.rowHighilited=function(row)
     {
       this.row = row;
+    }
+
+    this.newBookDetails = {};
+    this.addBookDetails = function(){
+      this.bookDetails.push(this.newBookDetails);
     }
   });
 
