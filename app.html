@@ -18,9 +18,8 @@
   </head>
   <body>
     <section ng-controller="LibraryController as library">
-      <table class="table table-striped">
+      <table class="table table-bordered table-hover">
         <thead>
-          <th>Index</th>
           <th>Name</th>
           <th>Author</th>
           <th>ISBN Code</th>
@@ -31,7 +30,6 @@
         </thead>
         <tbody>
           <tr ng-repeat="bookDetail in library.bookDetails" ng-class="{active:$index === library.row}" ng-click="library.rowHighilited($index)">
-            <td>{{$index}}</td>
             <td>{{bookDetail.name}}</td>
             <td>{{bookDetail.author}}</td>
             <td>{{bookDetail.isbnCode}}</td>
@@ -49,6 +47,7 @@
         <div class="col-md-1"><button class="btn btn-danger">Delete</button></div>
         <div class="col-md-4"></div>
       </section>
+      {{library.bookDetails[library.row]}}
     </section>
 
   </body>
