@@ -20,6 +20,7 @@
     <section ng-controller="LibraryController as library">
       <table class="table table-striped">
         <thead>
+          <th>Index</th>
           <th>Name</th>
           <th>Author</th>
           <th>ISBN Code</th>
@@ -29,7 +30,8 @@
           <th>Number of Books Issued</th>
         </thead>
         <tbody>
-          <tr ng-repeat="bookDetail in library.bookDetails">
+          <tr ng-repeat="bookDetail in library.bookDetails" ng-class="{active:$index === library.row}" ng-click="library.rowHighilited($index)">
+            <td>{{$index}}</td>
             <td>{{bookDetail.name}}</td>
             <td>{{bookDetail.author}}</td>
             <td>{{bookDetail.isbnCode}}</td>
@@ -40,6 +42,13 @@
           </tr>
         </tbody>
     </table>
+      <section class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-1"><button class="btn btn-primary">Add</button></div>
+        <div class="col-md-1"><button class="btn btn-warning">Edit</button></div>
+        <div class="col-md-1"><button class="btn btn-danger">Delete</button></div>
+        <div class="col-md-4"></div>
+      </section>
     </section>
 
   </body>
