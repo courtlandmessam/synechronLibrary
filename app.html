@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="library">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
     <!-- Latest compiled and minified CSS -->
@@ -15,40 +16,113 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
 
-  </head>
-  <body>
-    <section ng-controller="LibraryController as library">
-      <table class="table table-bordered table-hover">
-        <thead>
-          <th>Name</th>
-          <th>Author</th>
-          <th>ISBN Code</th>
-          <th>Number of Books</th>
-          <th>Publish Date</th>
-          <th>Book Category</th>
-          <th>Number of Books Issued</th>
-        </thead>
-        <tbody>
-          <tr ng-repeat="bookDetail in library.bookDetails" ng-class="{active:$index === library.row}" ng-click="library.rowHighilited($index)">
-            <td>{{bookDetail.name}}</td>
-            <td>{{bookDetail.author}}</td>
-            <td>{{bookDetail.isbnCode}}</td>
-            <td>{{bookDetail.numberOfBooks}}</td>
-            <td>{{bookDetail.publishDate}}</td>
-            <td>{{bookDetail.bookCategory}}</td>
-            <td>{{bookDetail.numberOfBooksIssued}}</td>
-          </tr>
-        </tbody>
-    </table>
-      <section class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-1"><button class="btn btn-primary">Add</button></div>
-        <div class="col-md-1"><button class="btn btn-warning">Edit</button></div>
-        <div class="col-md-1"><button class="btn btn-danger">Delete</button></div>
-        <div class="col-md-4"></div>
-      </section>
-      {{library.bookDetails[library.row]}}
-    </section>
+</head>
 
-  </body>
+<body>
+    <div class="container">
+        <section ng-controller="LibraryController as library">
+
+
+            <!--Beginning of books table -->
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN Code</th>
+                    <th>Number of Books</th>
+                    <th>Publish Date</th>
+                    <th>Book Category</th>
+                    <th>Number of Books Issued</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="bookDetail in library.bookDetails" ng-class="{active:$index === library.row}" ng-click="library.rowHighilited($index)">
+                        <td>{{bookDetail.name}}</td>
+                        <td>{{bookDetail.author}}</td>
+                        <td>{{bookDetail.isbnCode}}</td>
+                        <td>{{bookDetail.numberOfBooks}}</td>
+                        <td>{{bookDetail.publishDate}}</td>
+                        <td>{{bookDetail.bookCategory}}</td>
+                        <td>{{bookDetail.numberOfBooksIssued}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{newBookDetail.name}}</td>
+                        <td>{{newBookDetail.author}}</td>
+                        <td>{{newBookDetail.isbnCode}}</td>
+                        <td>{{newBookDetail.numberOfBooks}}</td>
+                        <td>{{newBookDetail.publishDate}}</td>
+                        <td>{{newBookDetail.bookCategory}}</td>
+                        <td>{{newBookDetail.numberOfBooksIssued}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--End of books table -->
+
+            <!--Beginning of buttons row -->
+            <section class="row">
+                <div class="col-md-4"><button class="btn btn-primary btn-lg btn-block">Add</button></div>
+                <div class="col-md-4"><button class="btn btn-warning btn-lg btn-block">Edit</button></div>
+                <div class="col-md-4"><button class="btn btn-danger btn-lg btn-block">Delete</button></div>
+            </section>
+            <!--End of buttons row -->
+
+            <!-- <dl>
+                <dt>Title:</dt>
+                <dd>{{library.bookDetails[library.row].name}}</dd>
+                <dt>Author:</dt>
+                <dd>{{library.bookDetails[library.row].author}}</dd>
+                <dt>ISBN Code:</dt>
+                <dd>{{library.bookDetails[library.row].isbnCode}}</dd>
+                <dt>Number of Books:</dt>
+                <dd>{{library.bookDetails[library.row].numberOfBooks}}</dd>
+                <dt>Publish Date:</dt>
+                <dd>{{library.bookDetails[library.row].publishDate}}</dd>
+                <dt>Book Category:</dt>
+                <dd>{{library.bookDetails[library.row].bookCategory}}</dd>
+                <dt>Number of Books Issued:</dt>
+                <dd>{{library.bookDetails[library.row].numberOfBooksIssued}}</dd>
+            </dl> -->
+        </section>
+
+        <!-- Add New Book Form -->
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="bookDetail.name">New Book Title</label>
+                <input ng-model="newBookDetail.name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+            </div>
+            <div class="form-group">
+                <label for="bookDetail.author">New Book Author</label>
+                <input ng-model="newBookDetail.author" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+            </div>
+            <div class="form-group">
+                <label  for="bookDetail.isbnCode">New Book ISBN Code</label>
+                <input ng-model="newBookDetail.isbnCode" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+            </div>
+            <div class="form-group">
+                <label for="bookDetail.numberOfBooks">New Number of Books</label>
+                <input ng-model="newBookDetail.numberOfBooks" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+            </div>
+            <div class="form-group">
+                <label for="bookDetail.publishDate">New Book Publish Date</label>
+                <input ng-model="newBookDetail.publishDate" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+            </div>
+            <div class="form-group">
+                <label for="bookDetail.bookCategory">New Book Category</label>
+                <select ng-model="newBookDetail.bookCategory" class="form-control">
+                  <option>Fiction</option>
+                  <option>Horror</option>
+                  <option>Drama</option>
+                  <option>Mystery</option>
+                  <option>Non-Fiction</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bookDetail.numberOfBooksIssued">New Number of Books Issued</label>
+                <input ng-model="newBookDetail.numberOfBooksIssued" type="text" class="form-control" id="exampleInputEmail1" placeholder="0" disabled>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+
+</body>
+
 </html>
