@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="library">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+  </head>
+  <body>
+    <section ng-controller="LibraryController as library">
+      <table class="table table-striped">
+        <thead>
+          <th>Name</th>
+          <th>Author</th>
+          <th>ISBN Code</th>
+          <th>Number of Books</th>
+          <th>Publish Date</th>
+          <th>Book Category</th>
+          <th>Number of Books Issued</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="bookDetail in library.bookDetails">
+            <td>{{bookDetail.name}}</td>
+            <td>{{bookDetail.author}}</td>
+            <td>{{bookDetail.isbnCode}}</td>
+            <td>{{bookDetail.numberOfBooks}}</td>
+            <td>{{bookDetail.publishDate}}</td>
+            <td>{{bookDetail.bookCategory}}</td>
+            <td>{{bookDetail.numberOfBooksIssued}}</td>
+          </tr>
+        </tbody>
+    </table>
+    </section>
+
+  </body>
+</html>
