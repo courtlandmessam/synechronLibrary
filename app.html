@@ -13,6 +13,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
 
@@ -49,7 +51,7 @@
                         <td>{{newBookDetail.author}}</td>
                         <td>{{newBookDetail.isbnCode}}</td>
                         <td>{{newBookDetail.numberOfBooks}}</td>
-                        <td>{{newBookDetail.publishDate}}</td>
+                        <td>{{newBookDetail.publishDate | date}}</td>
                         <td>{{newBookDetail.bookCategory}}</td>
                         <td>{{newBookDetail.numberOfBooksIssued}}</td>
                     </tr>
@@ -84,28 +86,31 @@
         </section>
 
         <!-- Add New Book Form -->
-        <form class="form-inline">
-            <div class="form-group">
+        <form class="form-horizontal add-form">
+          <div class="row add-form">
+            <div class="col-xs-4">
                 <label for="bookDetail.name">New Book Title</label>
                 <input ng-model="newBookDetail.name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
-            <div class="form-group">
+            <div class="col-xs-4">
                 <label for="bookDetail.author">New Book Author</label>
                 <input ng-model="newBookDetail.author" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
-            <div class="form-group">
+            <div class="col-xs-4">
                 <label  for="bookDetail.isbnCode">New Book ISBN Code</label>
                 <input ng-model="newBookDetail.isbnCode" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
-            <div class="form-group">
+          </div>
+          <div class="row add-form">
+            <div class="col-xs-3">
                 <label for="bookDetail.numberOfBooks">New Number of Books</label>
                 <input ng-model="newBookDetail.numberOfBooks" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
-            <div class="form-group">
+            <div class="col-xs-3">
                 <label for="bookDetail.publishDate">New Book Publish Date</label>
-                <input ng-model="newBookDetail.publishDate" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+                <input ng-model="newBookDetail.publishDate" type="date" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
             </div>
-            <div class="form-group">
+            <div class="col-xs-3">
                 <label for="bookDetail.bookCategory">New Book Category</label>
                 <select ng-model="newBookDetail.bookCategory" class="form-control">
                   <option>Fiction</option>
@@ -115,11 +120,14 @@
                   <option>Non-Fiction</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="col-xs-3">
                 <label for="bookDetail.numberOfBooksIssued">New Number of Books Issued</label>
-                <input ng-model="newBookDetail.numberOfBooksIssued" type="text" class="form-control" id="exampleInputEmail1" placeholder="0" disabled>
+                <select ng-model="newBookDetail.numberOfBooksIssued" class="form-control">
+                  <option>0</option>
+                </select>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+          <button type="submit" class="btn btn-success btn-lg btn-block add-form">Submit</button>
         </form>
     </div>
 

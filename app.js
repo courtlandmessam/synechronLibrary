@@ -15,7 +15,7 @@
     author: 'J.K. Rowling',
     isbnCode: '978-3-16-148410-0',
     numberOfBooks: 10,
-    publishDate: 19990708,
+    publishDate: "July 8, 1999",
     bookCategory: 'Fiction',
     numberOfBooksIssued: 0
   },
@@ -24,7 +24,7 @@
     author: 'J.K. Rowling',
     isbnCode: '978-3-16-148410-0',
     numberOfBooks: 10,
-    publishDate: 19990708,
+    publishDate: "Jan 1, 2000",
     bookCategory: 'Fiction',
     numberOfBooksIssued: 0
   }]
