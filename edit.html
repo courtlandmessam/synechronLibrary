@@ -1,4 +1,5 @@
-<dl>
+<h2>Edit a Book</h2>
+<!-- <dl>
     <dt>Title:</dt>
     <dd>{{library.bookDetails[library.row].name}}</dd>
     <dt>Author:</dt>
@@ -13,4 +14,42 @@
     <dd>{{library.bookDetails[library.row].bookCategory}}</dd>
     <dt>Number of Books Issued:</dt>
     <dd>{{library.bookDetails[library.row].numberOfBooksIssued}}</dd>
-</dl>
+</dl> -->
+<form class="form-horizontal add-form">
+    <div class="row add-form">
+        <div class="col-xs-4">
+            <label for="bookDetail.name">Book Title</label>
+            <input ng-model="library.newBookDetails.name" type="text" class="form-control" placeholder="{{library.bookDetails[library.row].name}}" readonly>
+        </div>
+        <div class="col-xs-4">
+            <label for="bookDetail.author">Book Author</label>
+            <input ng-model="library.newBookDetails.author" type="text" class="form-control" placeholder="{{library.bookDetails[library.row].author}}" readonly>
+        </div>
+        <div class="col-xs-4">
+            <label for="bookDetail.isbnCode">Book ISBN Code</label>
+            <input ng-model="library.newBookDetails.isbnCode" type="number" class="form-control" placeholder="{{library.bookDetails[library.row].isbnCode}}" readonly>
+        </div>
+    </div>
+
+    <div class="row add-form">
+        <div class="col-xs-3">
+            <label for="bookDetail.numberOfBooks">Edit Number of Books</label>
+            <input ng-model="library.bookDetails[library.row].numberOfBooks" type="number" class="form-control" placeholder="{{library.bookDetails[library.row].numberOfBooks}}" required>
+        </div>
+
+        <div class="col-xs-3">
+            <label for="bookDetail.publishDate">Book Publish Date</label>
+            <input ng-model="library.newBookDetails.publishDate" type="text" class="form-control" placeholder="{{library.bookDetails[library.row].publishDate}}" readonly>
+        </div>
+
+        <div class="col-xs-3">
+            <label for="bookDetail.bookCategory">Book Category</label>
+            <input ng-model="library.newBookDetails.bookCategory" type="text" class="form-control" placeholder="{{library.bookDetails[library.row].bookCategory}}" readonly>
+        </div>
+
+        <div class="col-xs-3">
+            <label for="bookDetail.numberOfBooksIssued">Number of Books Issued</label>
+            <input ng-model="library.newBookDetails.numberOfBooksIssued" type="text" class="form-control" placeholder="{{library.bookDetails[library.row].numberOfBooksIssued}}" readonly>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-success btn-lg btn-block add-form" value="Edit Book">
