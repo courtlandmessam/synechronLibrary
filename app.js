@@ -1,5 +1,5 @@
 (function(){
-  var app = angular.module('app', []);
+  var app = angular.module('app', ['ngRoute']);
 
   app.controller('LibraryController', function(){
     this.bookDetails = bookDetails;
@@ -12,7 +12,7 @@
 
     this.newBookDetails = {};
     this.addBookDetails = function(){
-      bookDetails.push(angular.copy(this.newBookDetails));
+      bookDetails.unshift(angular.copy(this.newBookDetails));
       this.newBookDetails = {};
     }
   });
