@@ -20,7 +20,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
-    
+
     <script type="text/javascript" src="app.js"></script>
 
 </head>
@@ -66,80 +66,16 @@
 
             <!--Beginning of buttons row -->
             <section class="row">
-                <div class="col-md-4"><button class="btn btn-primary btn-lg btn-block">Add</button></div>
-                <div class="col-md-4"><button class="btn btn-warning btn-lg btn-block">Edit</button></div>
+                <div class="col-md-4"><a href="#/add" class="btn btn-primary btn-lg btn-block">Add</a></div>
+                <div class="col-md-4"><a href="#/edit" class="btn btn-warning btn-lg btn-block">Edit</a></div>
                 <div class="col-md-4"><button class="btn btn-danger btn-lg btn-block">Delete</button></div>
             </section>
             <!--End of buttons row -->
-
-            <!-- <dl>
-                <dt>Title:</dt>
-                <dd>{{library.bookDetails[library.row].name}}</dd>
-                <dt>Author:</dt>
-                <dd>{{library.bookDetails[library.row].author}}</dd>
-                <dt>ISBN Code:</dt>
-                <dd>{{library.bookDetails[library.row].isbnCode}}</dd>
-                <dt>Number of Books:</dt>
-                <dd>{{library.bookDetails[library.row].numberOfBooks}}</dd>
-                <dt>Publish Date:</dt>
-                <dd>{{library.bookDetails[library.row].publishDate}}</dd>
-                <dt>Book Category:</dt>
-                <dd>{{library.bookDetails[library.row].bookCategory}}</dd>
-                <dt>Number of Books Issued:</dt>
-                <dd>{{library.bookDetails[library.row].numberOfBooksIssued}}</dd>
-            </dl> -->
+            <div ng-view></div>
         </section>
 
         <!-- Add New Book Form -->
-        <form class="form-horizontal add-form" ng-submit="library.addBookDetails(library)">
 
-            <div class="row add-form">
-                <div class="col-xs-4">
-                    <label for="bookDetail.name">New Book Title</label>
-                    <input ng-model="library.newBookDetails.name" type="text" class="form-control" placeholder="Ex: Grokking Algorithms" required>
-                </div>
-                <div class="col-xs-4">
-                    <label for="bookDetail.author">New Book Author</label>
-                    <input ng-model="library.newBookDetails.author" type="text" class="form-control" placeholder="Ex: Aditya Bhargava" required>
-                </div>
-                <div class="col-xs-4">
-                    <label for="bookDetail.isbnCode">New Book ISBN Code</label>
-                    <input ng-model="library.newBookDetails.isbnCode" type="number" class="form-control" placeholder="Ex: 1617292230" required>
-                </div>
-            </div>
-
-            <div class="row add-form">
-                <div class="col-xs-3">
-                    <label for="bookDetail.numberOfBooks">New Number of Books</label>
-                    <input ng-model="library.newBookDetails.numberOfBooks" type="number" class="form-control" placeholder="Ex: 10" required>
-                </div>
-
-                <div class="col-xs-3">
-                    <label for="bookDetail.publishDate">New Book Publish Date</label>
-                    <input ng-model="library.newBookDetails.publishDate" type="date" class="form-control" placeholder="Ex: 12/12/12" required>
-                </div>
-
-                <div class="col-xs-3">
-                    <label for="bookDetail.bookCategory">New Book Category</label>
-                    <select required ng-model="library.newBookDetails.bookCategory" class="form-control">
-                      <option value="">Please Select</option>
-                      <option value="Fiction">Fiction</option>
-                      <option value="Horror">Horror</option>
-                      <option value="Drama">Drama</option>
-                      <option value="Mystery">Mystery</option>
-                      <option value="Non-Fiction">Non-Fiction</option>
-                    </select>
-                </div>
-                <div class="col-xs-3">
-                    <label for="bookDetail.numberOfBooksIssued">New Number of Books Issued</label>
-                    <select required ng-model="library.newBookDetails.numberOfBooksIssued" class="form-control" placeholder="Choose 0">
-                      <option value="">Must Select 0</option>
-                      <option value="0">0</option>
-                    </select>
-                </div>
-            </div>
-            <input type="submit" class="btn btn-success btn-lg btn-block add-form" value="Submit New Book">
-        </form>
     </div>
 
 </body>

@@ -1,6 +1,22 @@
 (function(){
   var app = angular.module('app', ['ngRoute']);
 
+  app.config(function($routeProvider){
+    $routeProvider
+      .when('/add',
+        {
+          controller: 'LibraryController',
+          templateUrl: 'add.html'
+        })
+      .when('/edit',
+        {
+          controller: 'LibraryController',
+          templateUrl: 'edit.html'
+        })
+      .otherwise({redirectTo: '/edit'});
+  });
+
+
   app.controller('LibraryController', function(){
     this.bookDetails = bookDetails;
 
