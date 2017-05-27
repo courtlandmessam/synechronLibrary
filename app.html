@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="library">
+<html ng-app="app">
 
 <head>
     <meta charset="utf-8">
     <title></title>
     <!-- Latest compiled and minified CSS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -21,9 +22,9 @@
 
 </head>
 
-<body>
+<body ng-controller="LibraryController as library">
     <div class="container">
-        <section ng-controller="LibraryController as library">
+        <section>
 
 
             <!--Beginning of books table -->
@@ -47,15 +48,6 @@
                         <td>{{bookDetail.bookCategory}}</td>
                         <td>{{bookDetail.numberOfBooksIssued}}</td>
                     </tr>
-                    <!-- <tr>
-                        <td>{{newBookDetail.name}}</td>
-                        <td>{{newBookDetail.author}}</td>
-                        <td>{{newBookDetail.isbnCode}}</td>
-                        <td>{{newBookDetail.numberOfBooks}}</td>
-                        <td>{{newBookDetail.publishDate | date}}</td>
-                        <td>{{newBookDetail.bookCategory}}</td>
-                        <td>{{newBookDetail.numberOfBooksIssued}}</td>
-                    </tr> -->
                 </tbody>
             </table>
             <!--End of books table -->
@@ -87,49 +79,52 @@
         </section>
 
         <!-- Add New Book Form -->
-        <form class="form-horizontal add-form" ng-controller="LibraryController as library" ng-submit"library.addBookDetails()">
+        <form class="form-horizontal add-form" ng-submit="library.addBookDetails(library)">
 
-          <div class="row add-form">
-            <div class="col-xs-4">
-                <label for="bookDetail.name">New Book Title</label>
-                <input ng-model="library.bookDetail.name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
+            <div class="row add-form">
+                <div class="col-xs-4">
+                    <label for="bookDetail.name">New Book Title</label>
+                    <input ng-model="library.newBookDetails.name" type="text" class="form-control" placeholder="Harry Potter">
+                </div>
+                <div class="col-xs-4">
+                    <label for="bookDetail.author">New Book Author</label>
+                    <input ng-model="library.newBookDetails.author" type="text" class="form-control" placeholder="Harry Potter">
+                </div>
+                <div class="col-xs-4">
+                    <label for="bookDetail.isbnCode">New Book ISBN Code</label>
+                    <input ng-model="library.newBookDetails.isbnCode" type="text" class="form-control" placeholder="Harry Potter">
+                </div>
             </div>
-            <div class="col-xs-4">
-                <label for="bookDetail.author">New Book Author</label>
-                <input ng-model="library.bookDetail.author" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
-            </div>
-            <div class="col-xs-4">
-                <label  for="bookDetail.isbnCode">New Book ISBN Code</label>
-                <input ng-model="library.bookDetail.isbnCode" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
-            </div>
-          </div>
-          <div class="row add-form">
-            <div class="col-xs-3">
-                <label for="bookDetail.numberOfBooks">New Number of Books</label>
-                <input ng-model="library.bookDetail.numberOfBooks" type="text" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
-            </div>
-            <div class="col-xs-3">
-                <label for="bookDetail.publishDate">New Book Publish Date</label>
-                <input ng-model="library.bookDetail.publishDate" type="date" class="form-control" id="exampleInputEmail1" placeholder="Harry Potter">
-            </div>
-            <div class="col-xs-3">
-                <label for="bookDetail.bookCategory">New Book Category</label>
-                <select ng-model="library.bookDetail.bookCategory" class="form-control">
-                  <option>Fiction</option>
-                  <option>Horror</option>
-                  <option>Drama</option>
-                  <option>Mystery</option>
-                  <option>Non-Fiction</option>
-                </select>
-            </div>
-            <div class="col-xs-3">
-                <label for="bookDetail.numberOfBooksIssued">New Number of Books Issued</label>
-                <select ng-model="library.bookDetail.numberOfBooksIssued" class="form-control">
+
+            <div class="row add-form">
+                <div class="col-xs-3">
+                    <label for="bookDetail.numberOfBooks">New Number of Books</label>
+                    <input ng-model="library.newBookDetails.numberOfBooks" type="text" class="form-control" placeholder="Harry Potter">
+                </div>
+
+                <div class="col-xs-3">
+                    <label for="bookDetail.publishDate">New Book Publish Date</label>
+                    <input ng-model="library.newBookDetails.publishDate" type="date" class="form-control" placeholder="Harry Potter">
+                </div>
+
+                <div class="col-xs-3">
+                    <label for="bookDetail.bookCategory">New Book Category</label>
+                    <select ng-model="library.newBookDetails.bookCategory" class="form-control">
+                      <option>Fiction</option>
+                      <option>Horror</option>
+                      <option>Drama</option>
+                      <option>Mystery</option>
+                      <option>Non-Fiction</option>
+                    </select>
+                </div>
+                <div class="col-xs-3">
+                    <label for="bookDetail.numberOfBooksIssued">New Number of Books Issued</label>
+                    <select ng-model="library.newBookDetails.numberOfBooksIssued" class="form-control">
                   <option>0</option>
                 </select>
+                </div>
             </div>
-          </div>
-          <button type="submit" class="btn btn-success btn-lg btn-block add-form" value="Submit Book Details">Submit</button>
+            <input type="submit" class="btn btn-success btn-lg btn-block add-form" value="Submit New Book">
         </form>
     </div>
 
