@@ -84,32 +84,32 @@
             <div class="row add-form">
                 <div class="col-xs-4">
                     <label for="bookDetail.name">New Book Title</label>
-                    <input ng-model="library.newBookDetails.name" type="text" class="form-control" placeholder="Harry Potter">
+                    <input ng-model="library.newBookDetails.name" type="text" class="form-control" placeholder="Ex: Grokking Algorithms">
                 </div>
                 <div class="col-xs-4">
                     <label for="bookDetail.author">New Book Author</label>
-                    <input ng-model="library.newBookDetails.author" type="text" class="form-control" placeholder="Harry Potter">
+                    <input ng-model="library.newBookDetails.author" type="text" class="form-control" placeholder="Ex: Aditya Bhargava">
                 </div>
                 <div class="col-xs-4">
                     <label for="bookDetail.isbnCode">New Book ISBN Code</label>
-                    <input ng-model="library.newBookDetails.isbnCode" type="text" class="form-control" placeholder="Harry Potter">
+                    <input ng-model="library.newBookDetails.isbnCode" type="number" class="form-control" placeholder="Ex: 1617292230">
                 </div>
             </div>
 
             <div class="row add-form">
                 <div class="col-xs-3">
                     <label for="bookDetail.numberOfBooks">New Number of Books</label>
-                    <input ng-model="library.newBookDetails.numberOfBooks" type="text" class="form-control" placeholder="Harry Potter">
+                    <input ng-model="library.newBookDetails.numberOfBooks" type="number" class="form-control" placeholder="Ex: 10">
                 </div>
 
                 <div class="col-xs-3">
                     <label for="bookDetail.publishDate">New Book Publish Date</label>
-                    <input ng-model="library.newBookDetails.publishDate" type="date" class="form-control" placeholder="Harry Potter">
+                    <input ng-model="library.newBookDetails.publishDate" type="date" class="form-control" placeholder="Ex: 12/12/12">
                 </div>
 
                 <div class="col-xs-3">
                     <label for="bookDetail.bookCategory">New Book Category</label>
-                    <select ng-model="library.newBookDetails.bookCategory" class="form-control">
+                    <select ng-model="library.newBookDetails.bookCategory" class="form-control" placeholfer="Choose From List">
                       <option>Fiction</option>
                       <option>Horror</option>
                       <option>Drama</option>
@@ -119,9 +119,7 @@
                 </div>
                 <div class="col-xs-3">
                     <label for="bookDetail.numberOfBooksIssued">New Number of Books Issued</label>
-                    <select ng-model="library.newBookDetails.numberOfBooksIssued" class="form-control">
-                  <option>0</option>
-                </select>
+                    <input ng-model="library.newBookDetails.numberOfBooksIssued" type="text" class="form-control" placeholder='0' readonly="0">
                 </div>
             </div>
             <input type="submit" class="btn btn-success btn-lg btn-block add-form" value="Submit New Book">
