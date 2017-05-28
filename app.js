@@ -44,7 +44,8 @@
     }
 
     this.deleteBookDetails = function(row){
-      bookDetails.splice($index, 1);
+      this.row = row;
+      bookDetails.splice(row[$index], 1);
     }
   });
 
