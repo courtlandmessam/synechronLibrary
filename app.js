@@ -13,6 +13,11 @@
           controller: 'LibraryController',
           templateUrl: 'edit.html'
         })
+      .when('/delete',
+          {
+            controller: 'LibraryController',
+            templateUrl: 'delete.html'
+          })
       .otherwise({redirectTo: '/edit'});
   });
 
@@ -26,10 +31,20 @@
       this.row = row;
     }
 
+    this.newBookNumber = {};
+    this.editBookNumber = function(row){
+      this.row = row;
+      row.numberOfBooks = (angular.copy(this.newBookNumber));
+    }
+
     this.newBookDetails = {};
     this.addBookDetails = function(){
       bookDetails.unshift(angular.copy(this.newBookDetails));
       this.newBookDetails = {};
+    }
+
+    this.deleteBookDetails = function(row){
+      bookDetails.splice($index, 1);
     }
   });
 

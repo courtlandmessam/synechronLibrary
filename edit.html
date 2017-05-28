@@ -15,7 +15,7 @@
     <dt>Number of Books Issued:</dt>
     <dd>{{library.bookDetails[library.row].numberOfBooksIssued}}</dd>
 </dl> -->
-<form class="form-horizontal add-form">
+<form class="form-horizontal add-form" ng-submit="library.editBookNumber(library)">
     <div class="row add-form">
         <div class="col-xs-4">
             <label for="bookDetail.name">Book Title</label>
